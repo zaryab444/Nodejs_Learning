@@ -1,0 +1,6 @@
+(5) we use routes handling approach to tackle the use of next so solve the middleware overriding issue in app.use('/')
+
+(6) always use nom install --save in any package
+
+(&) Body parser parsing the middleware and handle incoming request if we console.log in app.use() middleware req.body without 
+     body parser they give use null so we need body parser npm package to parse the request.
