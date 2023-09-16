@@ -2,5 +2,14 @@
 
 (6) always use nom install --save in any package
 
-(&) Body parser parsing the middleware and handle incoming request if we console.log in app.use() middleware req.body without 
+(7) Body parser parsing the middleware and handle incoming request if we console.log in app.use() middleware req.body without 
      body parser they give use null so we need body parser npm package to parse the request.
+
+ (8) what is mvc in nodejs?
+ Seperation of concern 
+
+ Models: Represent your data in your code, work with your data (e.g. save, fetch)
+
+ Views: What the user sees, Decoupled from your application code.
+
+ Controllers: Connecting your models and your views, Contain the 'in-between' login also specify which routes to execute.    
