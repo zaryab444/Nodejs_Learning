@@ -3,6 +3,10 @@
 (6) always use nom install --save in any package
 
 (7) Body parser parsing the middleware and handle incoming request if we console.log in app.use() middleware req.body without 
+Mongodb cloud sohail.zaryab61@gmail.com email login
+username : sohailzaryab61
+pw:     oRrCo3gi7Hyzzvf8
+
      body parser they give use null so we need body parser npm package to parse the request.
 
  (8) what is mvc in nodejs?
@@ -13,3 +17,6 @@
  Views: What the user sees, Decoupled from your application code.
 
  Controllers: Connecting your models and your views, Contain the 'in-between' login also specify which routes to execute.    
+
+ (9) How to install mongodb driver in nodejs project ?
+ simply use npm i --save mongodb
