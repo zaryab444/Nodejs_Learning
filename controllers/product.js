@@ -13,6 +13,7 @@ exports.postAddProduct = async (req, res, next) => {
     imageUrl: req.body.imageUrl,
     price: req.body.price,
     description: req.body.description,
+    userId: req.user
   });
   product = await product.save();
   res.status(200).json(product);
