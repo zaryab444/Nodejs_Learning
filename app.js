@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const errorController = require('./controllers/error');
 const User = require('./models/user');
 
-const adminRoutes = require('./routes/admin');
+const adminRoutes = require('./routes/product');
 const shopRoutes = require('./routes/shop');
 const userRoutes = require('./routes/user');
 const app = express();

@@ -1,6 +1,6 @@
 const Product = require("../models/product");
 
-//http://localhost:3000/admin/all-product (Get Request)
+//http://localhost:3000/admin/all-products (Get Request)
 exports.getAllProduct = async (req, res, next) => {
   const products = await Product.find({});
   res.json(products);
