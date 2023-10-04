@@ -67,6 +67,9 @@ exports.postOrder = (req, res, next) => {
       return order.save();
     })
     .then((result) => {
+     return req.user.clearCart();
+    })
+    .then(() =>{
       res.json({ message: "Order placed" });
     })
     .catch((err) => console.log(err));
