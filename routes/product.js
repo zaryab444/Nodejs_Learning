@@ -9,9 +9,9 @@ const router = express.Router();
 router.post('/add-product', isAuth,productController.postAddProduct);
 
 
-router.get('/product/:productId', productController.getSingleProduct);
+router.get('/product/:productId',  isAuth, productController.getSingleProduct);
 
-router.delete('/delete-product/:productId', productController.deleteProduct);
+router.delete('/delete-product/:productId',  isAuth, productController.deleteProduct);
 
-router.put('/update-product/:productId', productController.updateSingleProduct);
+router.put('/update-product/:productId',  isAuth, productController.updateSingleProduct);
 module.exports = router;

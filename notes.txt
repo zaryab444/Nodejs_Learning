@@ -39,3 +39,12 @@ pw:     oRrCo3gi7Hyzzvf8
  (11) What is Authentication
  Authentication is need to be able to differential between the anonymous user who are not login and loggedin user we need to provide a flow
  to people visiting our page to signup and login.
+
+ Authentication means that not every visitor of the page can view and interact
+ with everything
+
+ Authentication has to happen on the  server-side and build up on 
+ sessions
+
+ You can protect routes by checking the (session-controlled) login status
+ right before you access a controller action.
