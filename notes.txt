@@ -48,3 +48,6 @@ pw:     oRrCo3gi7Hyzzvf8
 
  You can protect routes by checking the (session-controlled) login status
  right before you access a controller action.
+
+ (12) for node js emailing follow this link
+ https://medium.com/coox-tech/send-mail-using-node-js-express-js-with-nodemailer-93f4d62c83ee
