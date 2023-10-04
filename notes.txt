@@ -35,3 +35,7 @@ pw:     oRrCo3gi7Hyzzvf8
 
  (10) Mongoose is simplies the query and focus on data rather than query. Mongoose is ODM (Object Data Modeling)
  Mongodb is not a relational database its a document database.  use npm i --save mongoose for using
+
+ (11) What is Authentication
+ Authentication is need to be able to differential between the anonymous user who are not login and loggedin user we need to provide a flow
+ to people visiting our page to signup and login.
