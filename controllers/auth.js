@@ -1,5 +1,6 @@
 const bcrypt = require("bcryptjs");
 const nodemailer = require('nodemailer');
+const crypto = require('crypto');
 
 const User = require("../models/user");
 
@@ -107,3 +108,52 @@ exports.postLogout = (req, res, next) => {
     res.json({ message: "logout successfully" });
   });
 };
+
+//http://localhost:3000/reset (Post Request)
+// {
+//   "email": "enter those who registerd"
+// }
+exports.postReset = (req,res,next) => {
+crypto.randomBytes(32, (err,buffer) =>{
+  if(err){
+    console.log(err);
+  }
+  const token = buffer.toString('hex');
+  User.findOne({email: req.body.email}).then(
+    user => {
+      if(!user){
+       return res.json({ message: "No account with that email found" });
+      }
+      user.resetToken = token;
+      user.resetTokenExpiration = Date.now() + 3600000 //1 hour
+      return user.save();
+    })
+    .then(result => {
+      res.json({message: "Please check your email"})
+      const data = {
+        to: req.body.email,
+        from: 'shop@node-complete.com',
+        subject: 'Password Reset!',
+        html: `
+        <p> You requested a password reset </p>
+        <p> Click this <a href="http://localhost:3000/reset/${token}">link</a> to set the new password </p>
+        `
+        };
+      send(data);
+    })
+    .catch(err => {
+    console.log(err);
+  })
+})
+}
+
+exports.getNewPassword = (req,res,next) => {
+   const token = req.params.token;
+   User.findOne({resetToken: token, resetTokenExpiration: {$gt: Date.now()}})
+   .then(user =>{
+
+   })
+   .catch(err =>{
+    console.log(err);
+   });
+}
