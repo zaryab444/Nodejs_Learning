@@ -1,5 +1,5 @@
 const Product = require("../models/product");
-
+const ITEMS_PER_PAGE = 2;
 //http://localhost:3000/admin/all-products (Get Request)
 exports.getAllProduct = async (req, res, next) => {
   const products = await Product.find({});
@@ -72,3 +72,41 @@ exports.deleteProduct = async (req, res, next) => {
   }
 };
 
+// http://localhost:3000/admin/paginate (Get Request)
+
+// {
+//     "page":1 or 2 or 3 or 4 
+// }
+
+exports.getIndex = (req, res, next) => {
+  const page = req.body.page;
+  console.log(page);
+  let totalItems;
+
+  Product.find()
+    .countDocuments()
+    .then(numProducts => {
+      totalItems = numProducts;
+      return Product.find()
+        .skip((page - 1) * ITEMS_PER_PAGE)
+        .limit(ITEMS_PER_PAGE);
+    })
+    .then(products => {
+      console.log(products);
+      res.json({
+        totalProducts: totalItems,
+        currentPage: page,
+        hasNextPage: ITEMS_PER_PAGE * page < totalItems,
+        hasPreviousPage: page > 1,
+        nextPage: page + 1,
+        previousPage: page - 1,
+        lastPage: Math.ceil(totalItems / ITEMS_PER_PAGE),
+        products: products
+      })
+    })
+    .catch(err => {
+      const error = new Error(err);
+      error.httpStatusCode = 500;
+      return next(error);
+    });
+};

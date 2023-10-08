@@ -108,6 +108,9 @@ exports.getOrders = (req, res, next) => {
     .catch((err) => console.log(err));
 };
 
+
+//http://localhost:3000/orders/orderId  (Get Request)
+//make sure you have the order id data here
 exports.getInvoice = (req, res, next) => {
   const orderId = req.params.orderId;
   Order.findById(orderId)
@@ -171,17 +174,4 @@ exports.getInvoice = (req, res, next) => {
 };
 
 
-// exports.getInvoice = (req, res, next) => {
-//   const orderId = req.params.orderId;
-//   const invoiceName = 'invoice-' + orderId + '.pdf';
-//   const invoicePath = path.join('data','invoice', invoiceName);
-//   fs.readFile(invoicePath, (err,data) => {
-//     if(err) {
-//       return next(err);
-//     }
-//     res.setHeader('Content-Type', 'application/pdf');
-//     res.setHeader('Content-Disposition', 'inline: filename="' + invoiceName + '"');
-//     res.send(data);
-//   })
-// }
 

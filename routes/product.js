@@ -14,4 +14,5 @@ router.get('/product/:productId',  isAuth, productController.getSingleProduct);
 router.delete('/delete-product/:productId',  isAuth, productController.deleteProduct);
 
 router.put('/update-product/:productId',  isAuth, productController.updateSingleProduct);
+router.get('/paginate', productController.getIndex);
 module.exports = router;
