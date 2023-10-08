@@ -8,13 +8,20 @@ exports.getAllProduct = async (req, res, next) => {
 
 //http://localhost:3000/admin/add-product (Post Request)
 exports.postAddProduct = async (req, res, next) => {
+  const image = req.file;
+  
+  const imageUrl = image.path;
   let product = new Product({
     title: req.body.title,
-    imageUrl: req.body.imageUrl,
+    imageUrl: imageUrl,
     price: req.body.price,
     description: req.body.description,
     userId: req.user
   });
+  if(!product.imageUrl){
+      return res.status(400).json({message: 'bad iamge request'});
+  }
+
   product = await product.save();
   res.status(200).json(product);
 };

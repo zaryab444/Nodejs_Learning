@@ -51,3 +51,5 @@ pw:     oRrCo3gi7Hyzzvf8
 
  (12) for node js emailing follow this link
  https://medium.com/coox-tech/send-mail-using-node-js-express-js-with-nodemailer-93f4d62c83ee
+
+ (13) Multer helps to parse the file request
