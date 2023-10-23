@@ -53,3 +53,24 @@ pw:     oRrCo3gi7Hyzzvf8
  https://medium.com/coox-tech/send-mail-using-node-js-express-js-with-nodemailer-93f4d62c83ee
 
  (13) Multer helps to parse the file request
+
+ (14) How Stripe work
+
+ (15) what is REST state for 
+
+ Representational State Transfer  (Transfer data instead of user interface);
+
+ (16) JSON stand for javascript object notation
+
+ (17) what is CORS make some research 
+
+ CORS stand for Cross origin resourse sharing 
+
+ (18) Node helmet for secure headers  use when you deploy
+
+ (19) node compression use when you deploy
+
+ (20) morgan for request logging use when you deploy
+
+ (21) heruko email sohail.zaryab61@gmail.com  
+ pass: 12345678Aac12#

@@ -8,12 +8,11 @@ exports.getAllProduct = async (req, res, next) => {
 
 //http://localhost:3000/admin/add-product (Post Request)
 exports.postAddProduct = async (req, res, next) => {
-  const image = req.file;
-  
-  const imageUrl = image.path;
+  // const image = req.file;
+  // const imageUrl = image.path;
   let product = new Product({
     title: req.body.title,
-    imageUrl: imageUrl,
+    imageUrl: 'image',
     price: req.body.price,
     description: req.body.description,
     userId: req.user

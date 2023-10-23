@@ -174,4 +174,17 @@ exports.getInvoice = (req, res, next) => {
 };
 
 
-
+exports.getCheckout = (req, res, next) => {
+  req.user.populate('cart.items.productId')
+  .then(user => {
+    const products = user.cart.items;
+    let total = 0;
+    products.forEach(p =>{
+      total += p.quantity * p.productId.price;
+    });
+    res.json({
+      products: products,
+      totalSum: total
+    })
+  })
+}
